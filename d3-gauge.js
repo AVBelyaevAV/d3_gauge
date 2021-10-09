@@ -154,7 +154,7 @@
     2: [function(n, t, e) {
       "use strict";
       t.exports = {
-        size: 400,
+        size: 300,
         min: 0,
         max: 100,
         transitionDuration: 500,
