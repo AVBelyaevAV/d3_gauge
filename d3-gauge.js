@@ -55,7 +55,7 @@
         }
         var r = this,
           i = this._gauge.select(".needle-container");
-        i.selectAll("text").attr("class", "current-value").text(Math.round(n));
+        i.selectAll("text").attr("class", "current-value").text(Math.fround(n).toFixed(2));
         var o = i.selectAll("path");
         o.transition().duration(t ? t : this._transitionDuration).attrTween("transform", e)
       }, a._initZones = function() {
@@ -85,7 +85,7 @@
           var n = Math.round(this._size / 9),
             t = n / 2;
           this._gauge.append("svg:text").attr("class", "label").attr("x", this._cx).attr("y", this._cy / 2 + t).attr("dy", t).attr("text-anchor", "middle").text(this._label);
-          this._gauge.append("svg:text").attr("class", "labelc").attr("x", this._cx).attr("y", this._cy / 2 + t + 15).attr("dy", t).attr("text-anchor", "middle").text("circuits4you.com")
+          this._gauge.append("svg:text").attr("class", "labelc").attr("x", this._cx).attr("y", this._cy / 2 + t + 15).attr("dy", t).attr("text-anchor", "middle").text("distillate")
         }
       }, a._drawTicks = function() {
         for (var n, t = this._range / (this._majorTicks - 1), e = t / this._minorTicks, r = this._min; r <= this._max; r += t) {
@@ -154,16 +154,20 @@
     2: [function(n, t, e) {
       "use strict";
       t.exports = {
-        size: 250,
+        size: 400,
         min: 0,
         max: 100,
         transitionDuration: 500,
         label: "label.text",
-        minorTicks: 4,
-        majorTicks: 5,
+        minorTicks: 10,
+        majorTicks: 11,
         needleWidthRatio: .6,
         needleContainerRadiusRatio: .7,
         zones: [{
+          clazz: "green-zone",
+          from: .68,
+          to: .73
+		},{
           clazz: "yellow-zone",
           from: .73,
           to: .9
